@@ -1,6 +1,8 @@
 package main.binarysearchtree;
 
+import static java.lang.System.out;
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -33,6 +35,18 @@ public class TreeNode<T extends Comparable<T>> {
       } else {
         rightNode.insert(data);
       }
+    }
+  }
+
+  public void traverseInOrder() {
+    if (nonNull(leftNode)) {
+      leftNode.traverseInOrder();
+    }
+
+    out.print(data + ", ");
+
+    if (nonNull(rightNode)) {
+      rightNode.traverseInOrder();
     }
   }
 

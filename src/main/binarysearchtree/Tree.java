@@ -1,6 +1,7 @@
 package main.binarysearchtree;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class Tree<T extends Comparable<T>> {
 
@@ -15,5 +16,11 @@ public class Tree<T extends Comparable<T>> {
       root = new TreeNode<>(data);
     }
     root.insert(data);
+  }
+
+  public void traverseInOrder() {
+    if (nonNull(root)) {
+      root.traverseInOrder();
+    }
   }
 }
