@@ -2,6 +2,8 @@ package main.binarysearchtree;
 
 import static java.util.Objects.isNull;
 
+import org.jetbrains.annotations.NotNull;
+
 public class TreeNode<T extends Comparable<T>> {
 
   private T data;
@@ -12,7 +14,7 @@ public class TreeNode<T extends Comparable<T>> {
     this.data = data;
   }
 
-  public void insert(T data) {
+  public void insert(@NotNull T data) {
     final int comparedValue = data.compareTo(this.data);
 
     if (comparedValue == 0) {
