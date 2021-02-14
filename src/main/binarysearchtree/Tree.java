@@ -18,6 +18,10 @@ public class Tree<T extends Comparable<T>> {
     root.insert(data);
   }
 
+  public TreeNode<T> get(T value) {
+    return nonNull(root) ? root.get(value) : null;
+  }
+
   public void traverseInOrder() {
     if (nonNull(root)) {
       root.traverseInOrder();

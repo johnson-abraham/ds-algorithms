@@ -38,6 +38,22 @@ public class TreeNode<T extends Comparable<T>> {
     }
   }
 
+  public TreeNode<T> get(T value) {
+    final int comparedValue = value.compareTo(data);
+
+    if (comparedValue == 0) {
+      return this;
+    } else if (comparedValue < 0) {
+      if (nonNull(leftNode)) {
+        return leftNode.get(value);
+      }
+    } else if (nonNull(rightNode)) {
+      return rightNode.get(value);
+    }
+
+    return null;
+  }
+
   public void traverseInOrder() {
     if (nonNull(leftNode)) {
       leftNode.traverseInOrder();
@@ -72,5 +88,10 @@ public class TreeNode<T extends Comparable<T>> {
 
   public void setRightNode(TreeNode<T> rightNode) {
     this.rightNode = rightNode;
+  }
+
+  @Override
+  public String toString() {
+    return data.toString();
   }
 }
