@@ -22,6 +22,14 @@ public class Tree<T extends Comparable<T>> {
     return nonNull(root) ? root.get(value) : null;
   }
 
+  public T min() {
+    return nonNull(root) ? root.min() : null;
+  }
+
+  public T max() {
+    return nonNull(root) ? root.max() : null;
+  }
+
   public void traverseInOrder() {
     if (nonNull(root)) {
       root.traverseInOrder();

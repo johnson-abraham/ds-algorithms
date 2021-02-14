@@ -54,6 +54,14 @@ public class TreeNode<T extends Comparable<T>> {
     return null;
   }
 
+  public T min() {
+    return isNull(leftNode) ? data : leftNode.min();
+  }
+
+  public T max() {
+    return isNull(rightNode) ? data : rightNode.max();
+  }
+
   public void traverseInOrder() {
     if (nonNull(leftNode)) {
       leftNode.traverseInOrder();
