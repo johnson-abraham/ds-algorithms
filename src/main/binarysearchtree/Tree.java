@@ -30,6 +30,35 @@ public class Tree<T extends Comparable<T>> {
     return nonNull(root) ? root.max() : null;
   }
 
+  public void delete(T value) {
+    delete(root, value);
+  }
+
+  private TreeNode<T> delete(TreeNode<T> subTreeRoot, T value) {
+    if (isNull(subTreeRoot)) {
+      return null;
+    }
+
+    final int compared = value.compareTo(subTreeRoot.getData());
+
+    if (compared < 0) {
+      subTreeRoot.setLeftNode(delete(subTreeRoot.getLeftNode(), value));
+    } else if (compared > 0) {
+      subTreeRoot.setRightNode(delete(subTreeRoot.getRightNode(), value));
+    } else {
+      if (isNull(subTreeRoot.getLeftNode())) {
+        return subTreeRoot.getRightNode();
+      } else if (isNull(subTreeRoot.getRightNode())) {
+        return subTreeRoot.getLeftNode();
+      } else {
+        subTreeRoot.setData(subTreeRoot.getRightNode().min());
+        subTreeRoot.setRightNode(delete(subTreeRoot.getRightNode(), subTreeRoot.getData()));
+      }
+    }
+
+    return subTreeRoot;
+  }
+
   public void traverseInOrder() {
     if (nonNull(root)) {
       root.traverseInOrder();
