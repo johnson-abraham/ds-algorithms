@@ -1,8 +1,7 @@
-package main.doublylinkedlist;
+package main.queue;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-
-import java.util.function.Consumer;
 
 public class LinkedList<T extends Comparable<T>> {
 
@@ -28,12 +27,19 @@ public class LinkedList<T extends Comparable<T>> {
   }
 
   public T removeHead() {
-    return remove(
-        head,
-        headNode -> {
-          headNode = headNode.getNext();
-          headNode.setPrevious(null);
-        });
+    if (length == 0) {
+      return null;
+    } else {
+      final T value = head.getData();
+      if (length == 1) {
+        head = tail = null;
+      } else {
+        head = head.getNext();
+        head.setPrevious(null);
+      }
+      --length;
+      return value;
+    }
   }
 
   public void addToTail(T value) {
@@ -54,23 +60,15 @@ public class LinkedList<T extends Comparable<T>> {
   }
 
   public T removeTail() {
-    return remove(
-        tail,
-        tailNode -> {
-          tailNode = tailNode.getPrevious();
-          tailNode.setNext(null);
-        });
-  }
-
-  public T remove(Node<T> nodeToRemove, Consumer<Node<T>> consumer) {
     if (length == 0) {
       return null;
     } else {
-      final T value = nodeToRemove.getData();
+      final T value = tail.getData();
       if (length == 1) {
         head = tail = null;
       } else {
-        consumer.accept(nodeToRemove);
+        tail = tail.getPrevious();
+        tail.setNext(null);
       }
       --length;
       return value;
@@ -97,6 +95,10 @@ public class LinkedList<T extends Comparable<T>> {
 
   public int getLength() {
     return length;
+  }
+
+  public T peekHead() {
+    return isNull(head) ? null : head.getData();
   }
 
   private boolean removeIfLengthIs1(T value) {
