@@ -1,6 +1,6 @@
 package ds.linkedlist.singlylinkedlist;
 
-public class Node<T> {
+public class Node<T extends Comparable<T>> {
   private final T value;
   private Node<T> next;
 
