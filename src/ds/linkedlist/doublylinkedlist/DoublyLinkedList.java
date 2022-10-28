@@ -187,15 +187,4 @@ public class DoublyLinkedList<T extends Comparable<T>> implements LinkedList<T> 
 
     return ++length;
   }
-
-  public static void main(String[] args) {
-    final DoublyLinkedList<Integer> linkedList = new DoublyLinkedList<>();
-    linkedList.append(10);
-    linkedList.append(20);
-    linkedList.append(30);
-    linkedList.append(40);
-    linkedList.append(50);
-
-    linkedList.reverse();
-  }
 }

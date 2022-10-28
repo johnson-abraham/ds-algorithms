@@ -56,4 +56,19 @@ public class SinglyLinkedListRemoveTest {
 
     assertEquals(3, linkedList.size());
   }
+
+  @Test
+  void removeHead() {
+    linkedList.append(10);
+    linkedList.prepend(0);
+    linkedList.append(20);
+    linkedList.append(30);
+
+    assertEquals(4, linkedList.size());
+
+    final int removedValue = linkedList.remove(0);
+    assertEquals(removedValue, 0);
+
+    assertEquals(3, linkedList.size());
+  }
 }
