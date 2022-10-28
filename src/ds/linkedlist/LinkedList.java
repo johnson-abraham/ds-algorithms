@@ -25,5 +25,4 @@ public interface LinkedList<T extends Comparable<T>> {
   int size();
 
   void reverse();
-
 }
