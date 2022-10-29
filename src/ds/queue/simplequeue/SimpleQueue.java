@@ -1,14 +1,15 @@
-package ds.queue.impl;
+package ds.queue.simplequeue;
 
 import ds.linkedlist.LinkedList;
 import ds.linkedlist.singlylinkedlist.SinglyLinkedList;
+import ds.queue.Queue;
 
 import java.util.Optional;
 
-public class Queue<T extends Comparable<T>> implements ds.queue.Queue<T> {
+public class SimpleQueue<T extends Comparable<T>> implements Queue<T> {
   private final LinkedList<T> list;
 
-  public Queue() {
+  public SimpleQueue() {
     list = new SinglyLinkedList<>();
   }
 
