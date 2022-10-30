@@ -4,7 +4,7 @@ import ds.linkedlist.LinkedList;
 import ds.linkedlist.doublylinkedlist.DoublyLinkedList;
 
 public class Stack<T extends Comparable<T>> {
-  private LinkedList<T> list;
+  private final LinkedList<T> list;
 
   public Stack() {
     list = new DoublyLinkedList<>();
