@@ -3,10 +3,10 @@ package util;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static util.PreConditions.checkArgument;
-import static util.PreConditions.checkIndexBounds;
+import static util.PreCondition.checkArgument;
+import static util.PreCondition.checkIndexBounds;
 
-public class PreConditionsTest {
+public class PreConditionTest {
 
   @Test
   void illegalArgumentException() {

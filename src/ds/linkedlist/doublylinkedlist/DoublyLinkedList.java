@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import static util.PreConditions.checkArgument;
-import static util.PreConditions.checkIndexBounds;
+import static util.PreCondition.checkArgument;
+import static util.PreCondition.checkIndexBounds;
 
 public class DoublyLinkedList<T extends Comparable<T>> implements LinkedList<T> {
 

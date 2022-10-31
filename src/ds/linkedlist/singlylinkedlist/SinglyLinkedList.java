@@ -8,8 +8,8 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import static java.util.Optional.ofNullable;
-import static util.PreConditions.checkArgument;
-import static util.PreConditions.checkIndexBounds;
+import static util.PreCondition.checkArgument;
+import static util.PreCondition.checkIndexBounds;
 
 public class SinglyLinkedList<T extends Comparable<T>> implements LinkedList<T> {
   private Node<T> head;

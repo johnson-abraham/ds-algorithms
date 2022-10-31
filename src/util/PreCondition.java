@@ -1,6 +1,6 @@
 package util;
 
-public class PreConditions {
+public class PreCondition {
   public static void checkArgument(boolean failureCondition, String exceptionMessage) {
     if (failureCondition) {
       throw new IllegalArgumentException(exceptionMessage);
